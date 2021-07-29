@@ -1,5 +1,5 @@
 build:
-	mkdir -p vol-wp vol-db
+	mkdir -p vol-db vol-wp wp-plugins wp-themes
 	docker-compose build
 
 start:
@@ -16,6 +16,6 @@ down:
 
 clean: down
 	@echo "💥 Removing related folders/files..."
-	@rm -rf  vol-db vol-wp
+	@rm -rf  vol-db vol-wp wp-plugins wp-themes
 
 reset: clean

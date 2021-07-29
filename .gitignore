@@ -1,3 +1,5 @@
 .env
 vol-db/*
 vol-wp/*
+wp-plugins/*
+wp-themes/*

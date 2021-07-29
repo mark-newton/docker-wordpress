@@ -29,8 +29,7 @@ if ! $(wp core is-installed); then
     wp option update timezone_string "$WP_TIMEZONE"
 
     wp language core install $WP_LANG
-    wp language core activate $WP_LANG
-    wp language theme update --all
+    wp site switch-language $WP_LANG
 
     wp rewrite structure '/%postname%/'
 
@@ -48,6 +47,11 @@ if ! $(wp core is-installed); then
     if [ -f /app/initialize.sh ]; then
         sh /app/initialize.sh
     fi
+
+    # updates
+    wp core update
+    wp plugin update --all
+    wp core language update
 
     # make everything owned by www-data
     chown -Rh www-data.www-data . || true
